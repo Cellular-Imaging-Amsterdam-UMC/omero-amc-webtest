@@ -629,6 +629,16 @@ def image_rois(request, image_id, conn=None, **kwargs):
     roi_ids = [r.getId().getValue() for r in result.rois]
     return render(request, 'webtest/demo_viewers/image_rois.html',
                   {'roiIds': roi_ids})
+    
+
+@login_required()
+def iframe(request, image_id, conn=None, **kwargs):
+    """ Simply shows a page of ROI thumbnails for the specified image """
+    roi_service = conn.getRoiService()
+    result = roi_service.findByImage(int(image_id), None, conn.SERVICE_OPTS)
+    roi_ids = [r.getId().getValue() for r in result.rois]
+    return render(request, 'webtest/demo_viewers/iframe.html',
+                  {'roiIds': roi_ids, 'imageId': image_id})
 
 
 def webgateway_templates(request, base_template):

@@ -71,6 +71,10 @@ urlpatterns = [
     # Show a panel of ROI thumbnails for an image
     re_path(r'^image_rois/(?P<image_id>[0-9]+)/', views.image_rois,
             name='webtest_image_rois'),
+    
+    # Show a panel of ROI thumbnails for an image
+    re_path(r'^iframe/(?P<image_id>[0-9]+)/', views.iframe,
+            name='webtest_image_rois'),
 
     # post a comment annotation to images. parameters are in request:
     # imageIds=123,234  comment=blah ns=Namespace
