@@ -1,8 +1,49 @@
 {% extends "webgateway/core_html.html" %}
 
-{% block title %}ROIs{% endblock %}
+{% block title %}Scripts{% endblock %}
 
 {% block link %}
+{% endblock %}
+
+{% block script %}
+<style type="text/css">
+
+body {
+    font-family: arial;
+}
+form dir {
+    padding:0px;
+    margin:0px;
+}
+.toggle_channel {
+    padding:4px; margin:2px; padding-left:6px; border-radius: 6px;
+}
+
+#scripts_frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+</style>
+
+<!-- this page is designed to work without jQuery, but use jQuery when this page is loaded E.g. into webclient -->
+{% comment %} <script>
+    $(document).ready(function() {
+
+        $("#split_view_fig_form").ajaxForm({
+            success: function(data) {
+                $("#split_view_fig_content").html(data);
+            }
+        });
+    });
+
+function hideHeader() {
+    if (document.getElementById) {
+        document.getElementById("header").style.display = 'none';
+    }
+    return false;
+}
+</script> {% endcomment %}
 {% endblock %}
 
 {% block body %}
@@ -14,7 +55,12 @@
 {% else %}
     <h1>No ROIs</h1>
 {% endif %}
+<div style="display:none">
+    <label>Image IDs</label>
+    <input type="text" name="imageIds" {% if imageIds %} value="{{ imageIds }}" {% endif %} /> 
+    <a href="{% url 'webtest_split_view_figure' %}">Clear</a>
+</div>
 
-<iframe src="http://localhost:4080/webclient/scripts_menu_popup" width="600" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe id="scripts_frame" src="/webclient/scripts_menu_popup" frameborder="0" allowfullscreen></iframe>
 
 {% endblock %}
