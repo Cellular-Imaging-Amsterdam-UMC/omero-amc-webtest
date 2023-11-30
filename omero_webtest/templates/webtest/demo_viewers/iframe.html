@@ -33,7 +33,7 @@ form dir {
 <div>
     <label>Image IDs</label>
     <input type="text" name="imageIds" {% if imageIds %} value="{{ imageIds }}" {% endif %} /> 
-    <a href="{% url 'webtest_iframe' %}">Clear</a>
+    <a href="{% url 'webtest_scripts' %}">Clear</a>
 </div>
 
 <iframe id="scripts_frame" src="/webclient/scripts_menu_popup" frameborder="0" allowfullscreen></iframe>

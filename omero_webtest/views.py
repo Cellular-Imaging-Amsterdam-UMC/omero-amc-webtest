@@ -642,16 +642,16 @@ def iframe(request, conn=None, **kwargs):
     else:
         image_ids = []
     
-    roi_service = conn.getRoiService()
-    roi_ids = []
+    # roi_service = conn.getRoiService()
+    # roi_ids = []
     for iid in image_ids:
         image = conn.getObject("Image", iid)
         if image is None:
             continue
-        result = roi_service.findByImage(int(iid), None, conn.SERVICE_OPTS)
-        roi_ids += [r.getId().getValue() for r in result.rois]
+        # result = roi_service.findByImage(int(iid), None, conn.SERVICE_OPTS)
+        # roi_ids += [r.getId().getValue() for r in result.rois]
     return render(request, 'webtest/demo_viewers/iframe.html',
-                  {'roiIds': roi_ids, 'imageIds': id_list})
+                  {'imageIds': id_list})
 
 
 def webgateway_templates(request, base_template):
