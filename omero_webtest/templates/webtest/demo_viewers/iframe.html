@@ -36,6 +36,10 @@ form dir {
     <a href="{% url 'webtest_scripts' %}">Clear</a>
 </div>
 
-<iframe id="scripts_frame" src="/webclient/scripts_menu_popup" frameborder="0" allowfullscreen></iframe>
+{% if imageIds %}
+    <iframe id="scripts_frame" src="/webclient/scripts_menu_popup?Image={{ imageIds }}" frameborder="0" allowfullscreen>
+{% else %}
+    <iframe id="scripts_frame" src="/webclient/scripts_menu_popup" frameborder="0" allowfullscreen></iframe>
+{% endif %}
 
 {% endblock %}
