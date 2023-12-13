@@ -42,4 +42,11 @@ form dir {
     <iframe id="scripts_frame" src="/webclient/scripts_menu_popup" frameborder="0" allowfullscreen></iframe>
 {% endif %}
 
+<script>
+    $(document).ready(function() {
+        $("#draggable").draggable();
+        $("#draggable").resizable();
+    });
+</script>
+
 {% endblock %}
