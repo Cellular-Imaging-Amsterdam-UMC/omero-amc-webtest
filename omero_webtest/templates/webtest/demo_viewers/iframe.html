@@ -20,17 +20,25 @@ form dir {
 }
 
 #scripts_frame {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     border: 0;
 }
 </style>
+
+$( function() {
+    $( "#draggable" ).draggable();
+  } );
+
+$( function() {
+$( "#draggable" ).resizable();
+} );
 
 {% endblock %}
 
 {% block body %}
 
-<div>
+<div id="draggable">
     <label>Image IDs</label>
     <input type="text" name="imageIds" {% if imageIds %} value="{{ imageIds }}" {% endif %} /> 
     <a href="{% url 'webtest_scripts' %}">Clear</a>
