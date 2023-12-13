@@ -42,4 +42,14 @@ form dir {
     <iframe id="scripts_frame" src="/webclient/scripts_menu_popup" frameborder="0" allowfullscreen></iframe>
 {% endif %}
 
+<!-- jQuery script for draggable and resizable -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#draggable").draggable();
+        $("#draggable").resizable();
+    });
+</script>
+
 {% endblock %}
