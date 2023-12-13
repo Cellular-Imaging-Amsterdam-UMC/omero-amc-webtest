@@ -65,6 +65,10 @@ $(document).ready(function() {
             $(this).load(url);
         },
 
+        $( "#draggable" ).draggable();
+        $( "#draggable" ).resizable();
+        
+
         // Tab will only be enabled when a single image is selected
         //supported_obj_types: ['image', 'dataset']
     });
