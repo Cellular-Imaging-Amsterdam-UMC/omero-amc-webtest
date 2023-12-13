@@ -30,7 +30,7 @@ form dir {
 
 {% block body %}
 
-<div id="draggable">
+<div position="fixed" id="draggable" width="50%" height="50%">
     <label>Image IDs</label>
     <input type="text" name="imageIds" {% if imageIds %} value="{{ imageIds }}" {% endif %} /> 
     <a href="{% url 'webtest_scripts' %}">Clear</a>
@@ -46,9 +46,15 @@ form dir {
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-    $(document).ready(function() {
+    // Function to initialize draggable and resizable after iframe is loaded
+    function initializeDraggableAndResizable() {
         $("#draggable").draggable();
         $("#draggable").resizable();
+    }
+
+    // Attach the function to the load event of the iframe
+    $(document).on("load", "#scripts_frame", function() {
+        initializeDraggableAndResizable();
     });
 </script>
 
