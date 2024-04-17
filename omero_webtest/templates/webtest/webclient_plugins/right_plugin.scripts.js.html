@@ -22,53 +22,7 @@
 
 $(document).ready(function() {
 
-    // Initialise the right tab plugin, on our specified tab element
-    $("#scripts_tab").omeroweb_right_plugin({
-
-        plugin_index:{{ forloop.counter }},
-        
-        /**
-        *This will get called when tab is displayed or selected objects change
-        *The function will be passed 3 arguments:
-        *
-        *   selected: This is a list of the selected objects e.g. [{‘id’:’image-123’}, {‘id’:’image-456’}]
-        *
-        *   obj_dtype: This is the data-type of the first selected object, e.g. ‘image’
-        *
-        *   obj_id: This is the ID of the first selected object, e.g. 123     
-        */
-        load_plugin_content: function(selected, obj_dtype, obj_id) {
-            
-
-            // since we only support single images, the obj_id will be an image ID
-            // Generate url based on a template-generated url
-            // Url based on selected object(s)
-            var url = '{% url 'webtest_index' %}iframe/'+obj_id +'/';
-
-            var url;
-            if (obj_dtype=="image") {
-                var iids = [];
-                for (var i=0; i<selected.length; i++) {
-                    var dtype = selected[i]['id'].split("-")[0];
-                    if (dtype == "image") {
-                        iids.push(selected[i]['id'].split("-")[1]);
-                    };
-                }
-                url = '{% url 'webtest_index' %}iframe?imageIds='+ iids.join(",");
-            // if it's a dataset, show 2 rendering settings side by side.
-            } else if (obj_dtype=="dataset") {
-                //split_view_url = '{% url 'webtest_index' %}dataset_split_view/'+oid+'/';
-                url = '{% url 'webtest_index' %}iframe?datasetId='+ obj_id;
-            }
-
-            // Simply load the tab
-            $(this).load(url);
-        },
-        
-
-        // Tab will only be enabled when a single image is selected
-        //supported_obj_types: ['image', 'dataset']
-    });
-       
+    console.log("Amazing! We made it!!!!!!!1111")
+   
 });
 </script>
