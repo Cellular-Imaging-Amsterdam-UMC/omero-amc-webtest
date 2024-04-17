@@ -17,22 +17,20 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 {% endcomment %}
-<script type="text/javascript" src="{% static 'webtest/js/bundle.js' %}"></script>
 <script>
-
-$(document).ready(function() {
-
+  $(document).ready(function() {
+    
     console.log("Amazing! We made it!!!!!!!1111")
-
+    
     // Step 1: Create a new div element
     var newDiv = document.createElement("div");
-
+    
     // Step 2: Optionally, add content or attributes to the div
-    newDiv.id = "scriptdget";
-
+    newDiv.id = "root";
+    
     // Step 3: Attach the div to the document root
     document.body.appendChild(newDiv);
-
-   
-});
+    
+  });
 </script>
+<script type="text/javascript" src="{% static 'webtest/js/bundle.js' %}"></script>
